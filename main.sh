@@ -5,7 +5,12 @@ previous=""
 while :; do
 	curr="$(pwd $PATH)/images/$(date +%y%m%d%H%M%S).png"
 	echo "##############"
-	imagesnap $curr > /dev/null
+	if [ $(uname) == "Darwin" ]
+	then
+		imagesnap $curr > /dev/null
+	else
+		fswebcam -r 800x600 --png -1 $curr
+	fi
 	if [ -z $previous ]
 	then
 		previous=$curr
