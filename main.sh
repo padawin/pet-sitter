@@ -6,8 +6,10 @@ while :; do
 	curr="$(pwd $PATH)/images/$(date +%y%m%d%H%M%S).png"
 	echo "##############"
 	imagesnap $curr > /dev/null
-	if [ ! -z $previous ]
+	if [ -z $previous ]
 	then
+		previous=$curr
+	else
 		python pic.py "$previous" "$curr"
 		different=$?
 		if [ "$different" -eq 0 ]
@@ -15,8 +17,8 @@ while :; do
 			rm $curr
 		else
 			echo "Images different, keep $curr"
+			previous=$curr
 		fi
 	fi
-	previous=$curr
 	sleep 5
 done
