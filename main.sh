@@ -3,7 +3,7 @@
 mkdir -p images
 previous=""
 while :; do
-	curr="./images/$(date +%y%m%d%H%M%S).png"
+	curr="$(pwd $PATH)/images/$(date +%y%m%d%H%M%S).png"
 	echo "##############"
 	imagesnap $curr > /dev/null
 	if [ ! -z $previous ]
