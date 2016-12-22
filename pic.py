@@ -22,16 +22,8 @@ if __name__ == "__main__":
 	# and the original + photoshop
 	print("previous: {}".format(sys.argv[1]))
 	print("current: {}".format(sys.argv[2]))
-	prev = cv2.imread(sys.argv[1])
-	curr = cv2.imread(sys.argv[2])
-
-	# convert the images to grayscale
-	try:
-		prev = cv2.cvtColor(prev, cv2.COLOR_BGR2GRAY)
-		curr = cv2.cvtColor(curr, cv2.COLOR_BGR2GRAY)
-	except cv2.error:
-		print("an error occured")
-		exit(1)
+	prev = cv2.imread(sys.argv[1], 0)
+	curr = cv2.imread(sys.argv[2], 0)
 
 	# compare the images
 	resultMse = mse(prev, curr)
