@@ -1,10 +1,11 @@
 #!/usr/local/bin/python3
-# import the necessary packages
 from skimage.measure import compare_ssim as ssim
 import numpy as np
 import cv2
 import sys
 
+# kindly learnt from
+# http://www.pyimagesearch.com/2014/09/15/python-compare-two-images/
 def mse(imageA, imageB):
 	# the 'Mean Squared Error' between the two images is the
 	# sum of the squared difference between the two images;
