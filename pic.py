@@ -17,14 +17,6 @@ def mse(imageA, imageB):
 	return err
 
 
-def compare_images(imageA, imageB):
-	# compute the mean squared error and structural similarity
-	# index for the images
-	m = mse(imageA, imageB)
-	s = ssim(imageA, imageB)
-	return (m, s)
-
-
 if __name__ == "__main__":
 	# load the images -- the original, the original + contrast,
 	# and the original + photoshop
